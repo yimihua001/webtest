@@ -1,0 +1,182 @@
+@mixin property-dpr($property, $px-values) {
+    //判断参数是不是单个数字，若是
+    @if type-of($px-values)=="number" {
+        #{$property}: $px-values;
+        [data-dpr="2"] & {
+            #{$property}: $px-values * 2;
+        }
+        [data-dpr="3"] & {
+            #{$property}: $px-values * 3;
+        }
+    }
+    //若为数组则
+    @else {
+        //新建两个空数组
+        $twodpr-values: ();
+        $threedpr-values: ();
+        //遍历多值变量
+        @each $value in $px-values {
+            $twodpr-values: append($twodpr-values, $value*2);
+            $threedpr-values: append($threedpr-values, $value*3)
+        }
+        // 返回处理后的多值变量
+        #{$property}: $px-values;
+        [data-dpr="2"] & {
+            #{$property}: $twodpr-values;
+        }
+        [data-dpr="3"] & {
+            #{$property}: $threedpr-values;
+        }
+    }
+}
+
+@mixin px2rem($property, $px-values, $baseline-px:75px, $support-for-ie:false) {
+    //Conver the baseline into rems 
+    $baseline-rem: $baseline-px / 1rem * 1; //Print the first line in pixel values
+    @if $support-for-ie {
+        #{$property}: $px-values;
+    }
+    //if there is only one (numeric) value, return the property/value line for it.
+    @if type-of($px-values)=="number" {
+        #{$property}: $px-values / $baseline-rem;
+    }
+    @else {
+        //Create an empty list that we can dump values into 
+        $rem-values: ();
+        @each $value in $px-values {
+            // If the value is zero or not a number, return it 
+            @if $value==0 or type-of($value) !="number" {
+                $rem-values: append($rem-values, $value / $baseline-rem);
+            }
+        }
+        // Return the property and its list of converted values 
+        #{$property}: $rem-values;
+    }
+}
+
+%display {
+    display: inline-block;
+    *display: inline;
+    *zoom: 1;
+}
+
+
+%box-sizing {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -o-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+%display-box { 
+    display: box;
+    display: -moz-box;
+    display: -webkit-box;
+}
+
+%box-flex { 
+     box-flex: 1;
+     -webkit-box-flex: 1;
+     -moz-box-flex: 1;
+}
+
+%display-flex{
+    display: flex;
+    display: -moz-flex;
+    display: -webkit-flex;
+}
+@mixin text-indent($width){
+    text-indent:$width;
+}
+
+@mixin dz($time:0.25s){
+    -webkit-transition: all $time ease-in-out;
+    -moz-transition: all $time ease-in-out;
+    -o-transition: all $time ease-in-out;
+    transition: all $time ease-in-out;
+}
+
+// 绝对居中
+@mixin center($width, $height) {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    width: $width;
+    height: $height;
+    margin: (-$height / 2) 0 0 (-$width / 2);
+}
+
+// 设置动画名称
+@mixin animation($aniName) {
+    -webkit-animation: $aniName;
+    -moz-animation: $aniName;
+    -o-animation: $aniName;
+    animation: $aniName;
+}
+
+// 设置延迟执行时间
+@mixin animation-delay($time) {
+    -webkit-animation-delay: $time;
+    -moz-animation-delay: $time;
+    -o-animation-delay: $time;
+    animation-delay: $time;
+}
+
+// 设置阴影
+@mixin box-shadow($shadow) {
+    -webkit-box-shadow: $shadow;
+    -moz-box-shadow: $shadow;
+    -o-box-shadow: $shadow;
+    box-shadow: $shadow;
+}
+
+// 圆角
+@mixin border-radius($radius1,$radius2,$radius3,$radius4) {
+    -webkit-border-radius: $radius1 $radius2 $radius3 $radius4;
+    -moz-border-radius: $radius1 $radius2 $radius3 $radius4;
+    -o-border-radius: $radius1 $radius2 $radius3 $radius4;
+    border-radius: $radius1 $radius2 $radius3 $radius4;
+}
+
+// 设置过渡
+@mixin transition($transition) {
+    -webkit-transition: $transition;
+    -moz-transition: $transition;
+    -o-transition: $transition;
+    transition: $transition;
+}
+
+// 设置旋转位置
+@mixin transform-origin($origin) {
+    -webkit-transform-origin: $origin;
+    -moz-transform-origin: $origin;
+    -o-transform-origin: $origin;
+    transform-origin: $origin;
+}
+
+@mixin transform($transform...) {
+    -webkit-transform: $transform;
+    -moz-transform: $transform;
+    -o-transform: $transform;
+    transform: $transform;
+}
+
+// 设置关键帧
+@mixin keyframes($name) {
+    @-webkit-keyframes #{$name} {
+        $browser: '-webkit-';
+        @content;
+    }
+    @-moz-keyframes #{$name} {
+        $browser: '-moz-';
+        @content;
+    }
+    @-o-keyframes #{$name} {
+        $browser: '-o-';
+        @content;
+    }
+    @keyframes #{$name} {
+        $browser: '';
+        @content;
+    }
+}

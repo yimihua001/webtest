@@ -1,0 +1,67 @@
+.mint-toast {
+    padding-top: pxTorem(10px)
+}
+
+.mint-toast-text {
+    @include property-dpr(font-size, 14px);
+    padding: 0 pxTorem(30px)
+}
+
+.mintui-back {
+    color: $color-white;
+    @include property-dpr(font-size, 25px);
+}
+.mint-popup-4{width:100%;}
+
+.mint-radio-input:checked + .mint-radio-core{
+    background-color: #fff;
+    border-color: #ccc;
+}
+.mint-checkbox-input:checked + .mint-checkbox-core{
+     background-color: #fff;
+    border-color: #ccc;
+}
+
+.mint-radio-input:checked + .mint-radio-core::after{
+    background-color: $color-green;
+}
+.mint-checkbox-core:after{
+    background-color: $color-green !important;
+}
+.mint-radio-core::after{
+    width:10px;height:10px;
+    top: 4px !important;
+    left: 4px !important;
+}
+
+.mint-msgbox-btns{
+    height:pxTorem(100px);
+    line-height:pxTorem(100px);
+}
+.mint-msgbox-btn{
+     @include property-dpr(font-size, 16px);
+}
+.mint-msgbox-confirm{
+    color:$font-color;
+}
+.mint-msgbox-cancel {
+    width: 50%;
+    border-right: 1px solid $border-color;
+     color:$font-color;
+}
+.mint-msgbox-content{
+    border-bottom: 1px solid $border-color;
+    padding: pxTorem(40px) pxTorem(30px) pxTorem(40px) pxTorem(30px);
+}
+
+.loading-more{
+    margin-top:pxTorem(10px);
+}
+
+.mint-msgbox{
+    width:95%;
+}
+
+
+
+

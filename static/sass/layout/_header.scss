@@ -1,0 +1,5 @@
+.mint-header {
+    background: $main-color;
+    height: pxTorem(88px);
+    @include property-dpr(font-size, 16px);
+}

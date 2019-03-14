@@ -1,0 +1,94 @@
+.search-wrapper {
+    @extend %display-box;
+    margin: pxTorem(40px) pxTorem(40px) pxTorem(26px) pxTorem(40px);
+    height: pxTorem(100px);
+    z-index: 999;
+    background: $color-white;
+    @include border-radius(pxTorem(10px), pxTorem(10px), pxTorem(10px), pxTorem(10px));
+    border: 1px solid #ccc;
+//  position:fixed;
+//  top:0;left:0;
+//  right:0;
+    input {
+        display: block;
+        @extend %box-flex;
+        padding: pxTorem(20px) pxTorem(20px) pxTorem(20px) pxTorem(5px);
+        height: pxTorem(95px);
+        @include property-dpr(font-size, 16px);
+        border: none;
+        @include border-radius(0, pxTorem(100px), pxTorem(100px), 0);
+        &:after {
+            content: ' ';
+            position: absolute;
+            right: 0;
+            background: url(/static/image/icon_search.png) no-repeat center center;
+            background-size: pxTorem(25px);
+            height: pxTorem(20px);
+            width: pxTorem(10px);
+        }
+        &:-webkit-input-placeholder {
+            color: red;
+        }
+         :-moz-placeholder {
+            /* Firefox 18- */
+            color: red;
+        }
+         ::-moz-placeholder {
+            /* Firefox 19+ */
+            color: red;
+        }
+         :-ms-input-placeholder {
+            color: red;
+        }
+    }
+    .icon-search {
+        background: url(/static/image/icon_search.png) no-repeat center center;
+        background-size: pxTorem(30px) auto;
+        width: pxTorem(30px);
+        height: pxTorem(95px);
+        margin: 0 pxTorem(15px) 0 pxTorem(20px)
+    }
+    .btn-search{
+        line-height:pxTorem(95px);
+        margin-right:pxTorem(20px);
+        @include property-dpr(font-size, 16px);
+    }
+    .bottom {
+        width: pxTorem(60px);
+        height: pxTorem(90px);
+        line-height: pxTorem(90px);
+    }
+    .return {
+        content: ' ';
+        position: absolute;
+        left: pxTorem(15px);
+        background: url(/static/image/icon_return.png) no-repeat center center;
+        background-size: pxTorem(30px);
+        height: pxTorem(95px);
+        width: pxTorem(25px);
+    }
+    .cut-line {
+        @include property-dpr(font-size, 16px);
+        line-height: pxTorem(95px);
+        color: #b3b3b3;
+        margin-left:pxTorem(10px)
+    }
+    .choice-city {
+        max-width: pxTorem(150px);
+        padding-right: pxTorem(35px);
+        margin: 0 pxTorem(10px) 0 pxTorem(20px);
+        @include property-dpr(font-size, 16px);
+        color: $color-30;
+        line-height: pxTorem(95px);
+        position: relative;
+        &:after {
+            content: ' ';
+            position: absolute;
+            right: 0;
+            background: url(/static/image/icon_down.png) no-repeat center center;
+            background-size: pxTorem(25px);
+            height: pxTorem(95px);
+            width: pxTorem(25px);
+        }
+    }
+}

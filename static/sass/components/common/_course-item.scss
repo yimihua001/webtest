@@ -1,0 +1,88 @@
+// 产品-公共组建样式
+@import '../../helpers/variables',
+'../../helpers/mixin',
+'../../helpers/function';
+@import '../../base/base',
+'../../base/reset';
+@import '../../layout/header',
+'../../layout/layout',
+'../../layout/footer';
+@import '../../components/search',
+'../../components/mint',
+'../../components/listImg',
+'../../components/city';
+.product-item{
+		width: 46%;
+		margin: pxTorem(20px) 2%;
+		float: left;		
+		border-radius: pxTorem(20px);
+		overflow:hidden;
+		box-shadow: 0px 1px 5px rgba(0,0,0,0.2);    
+		@extend %box-sizing;
+		.pro-pic{
+			width: 100%;
+			height: pxTorem(200px);
+			position: relative;
+			.picitem{
+				width:100%;
+				height: pxTorem(200px);
+				overflow: hidden;
+				border: none;
+			}
+			.timetip{
+				position: absolute;
+				bottom:pxTorem(36px);
+				left:0;
+				width: 100%;
+				height: pxTorem(30px);
+				line-height: pxTorem(30px);
+				display: block;
+				text-align: center;
+				color:$color-white;
+				@include property-dpr(font-size,10px);				
+			}
+			.flag{
+				position: absolute;
+				top:0;
+				right:0;
+				width: pxTorem(110px);
+				height: pxTorem(50px);
+				line-height: pxTorem(50px);
+				display: block;
+				text-align: center;
+				background: $color-red1;
+				border-radius: 0 pxTorem(20px) 0 pxTorem(20px);
+				@include property-dpr(font-size,9px);
+				color: $color-white;
+			}
+			
+		}
+		.pro-title{
+			width: 100%;
+			padding: pxTorem(10px) pxTorem(20px);
+			@extend %box-sizing;
+			height: pxTorem(100px);
+			@include property-dpr(font-size,13px);
+			line-height: pxTorem(40px);
+		}
+		.pro-price{
+			width: 100%;
+			height: pxTorem(50px);
+			line-height: pxTorem(30px);
+			position: relative;
+			.price{
+				position: absolute;
+				top:0;
+				left: pxTorem(20px);
+				color: $color-green;
+				@include property-dpr(font-size,13px);
+			}
+			.sign{
+				position: absolute;
+				top:0;
+				right: pxTorem(20px);
+				color: $color-grey1;
+				@include property-dpr(font-size,12px);
+			}
+		}
+	}

@@ -1,0 +1,102 @@
+.user-wrapper {
+    .mint-cell {
+       // background-color: $color-f0;
+    }
+    .mint-cell-text {
+        color: $color-green;
+    }
+    .mint-cell-wrapper {
+        background-image: -webkit-linear-gradient(top, $color-green, $color-green 50%, transparent 50%);
+        background-image: linear-gradient(180deg, $color-green, $color-green 50%, transparent 50%);
+        background-position: bottom left;
+        padding: 0;
+        input {
+           // background-color: $color-f0;
+        }
+         ::-webkit-input-placeholder {
+            /* WebKit browsers */
+            color: #afe2d4;
+        }
+         :-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: #afe2d4;
+        }
+         ::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: #afe2d4;
+        }
+         :-ms-input-placeholder {
+            /* Internet Explorer 10+ */
+            color: #afe2d4;
+        }
+    }
+}
+
+.student-info-wapper {
+    .mint-cell-text {
+      //  color: $color-9d;
+        padding-left: pxTorem(20px);
+    }
+    .mint-cell-wrapper {
+      //  background-image: -webkit-linear-gradient(top, $color-f0, $color-f0 50%, transparent 50%);
+     //   background-image: linear-gradient(180deg, $color-f0, $color-f0 50%, transparent 50%);
+        background-position: bottom left;
+        padding: 0;
+         ::-webkit-input-placeholder {
+            /* WebKit browsers */
+            color: #ccc;
+        }
+         :-moz-placeholder {
+            /* Mozilla Firefox 4 to 18 */
+            color: #ccc;
+        }
+         ::-moz-placeholder {
+            /* Mozilla Firefox 19+ */
+            color: #ccc;
+        }
+         :-ms-input-placeholder {
+            /* Internet Explorer 10+ */
+            color: #ccc;
+        }
+    }
+    .mint-radiolist-title {
+        @include property-dpr(font-size, 16px);
+        margin: pxTorem(20px);
+        //  display: inline-block;
+       // color: $color-9d;
+    }
+    .mint-checklist-title {
+        @include property-dpr(font-size, 16px);
+        margin: pxTorem(20px);
+        display: inline-block;
+       // color: $color-9d;
+    }
+}
+
+.mint-cell:last-child {
+   // background-image: -webkit-linear-gradient(bottom, $color-f0, $color-f0 50%, transparent 50%);
+   // background-image: linear-gradient(0deg, $color-f0, $color-f0 50%, transparent 50%);
+    background-size: 100% 1px;
+    background-repeat: no-repeat;
+    background-position: bottom;
+}
+
+.form-require {
+    .mint-cell-title {
+         :before {
+            content: '*';
+            color: $color-red;
+            margin-right: pxTorem(5px);
+        }
+    }
+}
+
+.apply-baseInfo .mint-radiolist-title {
+    width: pxTorem(140px)
+}
+
+.radio-require .mint-radiolist-title:before {
+    content: '*';
+    color: $color-red;
+    margin-right: pxTorem(5px);
+}

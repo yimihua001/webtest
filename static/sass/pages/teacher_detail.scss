@@ -1,0 +1,170 @@
+@import '../helpers/variables',
+'../helpers/mixin',
+'../helpers/function';
+@import '../base/base',
+'../base/reset';
+@import '../layout/header',
+'../layout/layout',
+'../layout/footer';
+@import '../components/search',
+'../components/mint',
+'../components/listImg',
+'../components/city';
+.teacher-info-wrapper {
+    .main-info {
+        @extend %display-box;
+        margin: pxTorem(40px) pxTorem(20px) pxTorem(20px) 0;
+        background: $color-white;
+        padding: pxTorem(15px) pxTorem(40px) pxTorem(15px) pxTorem(20px);
+        box-sizing: border-box;
+        text-decoration: none;
+        .left {
+            margin-top: pxTorem(10px);
+            @extend %box-flex;
+            margin-left: pxTorem(20px);
+            h1 {
+                font-weight: 700;
+				margin-top: pxTorem(20px);
+            }
+            em {
+                color: $color-62;
+                display: inline-block;
+            }
+            p {
+                @extend %box-flex;
+                margin-top: pxTorem(10px);
+                @include property-dpr(font-size,
+                16px);
+                word-wrap: break-word;
+            }
+        }
+        .img-wrapper {
+            width: pxTorem(120px);
+            height: pxTorem(120px);
+            @extend .tc;
+            border-radius: 50%;
+            img {
+                width: pxTorem(120px);
+                height: pxTorem(120px);
+                border-radius: 100%;
+            }
+        }
+    }
+	.block{
+		width: 100%;
+		height: pxTorem(12px);
+		background: $border-color;
+	}
+	.content-box{
+		ul {
+		    @extend %display-flex;
+		    @extend .tc;
+		    border-bottom: solid 1px $border-color;
+		    li {
+		        flex: 1;
+		        line-height: pxTorem(90px);
+		        @include property-dpr(font-size,
+		        16px);
+		    }
+		    .active {
+		        border-bottom: solid 1px $color-green;
+		    }
+		}
+	}
+    .other-info {
+        padding: pxTorem(20px) pxTorem(40px) pxTorem(20px) pxTorem(40px);
+        h3 {
+            color: $color-62;
+            line-height: pxTorem(62px);
+            font-weight: 600;
+            padding-top: pxTorem(40px);
+            border-top: solid 1px $border-color;
+			text-indent: pxTorem(30px);
+			position: relative;
+            &:first-child {
+                border-top: none;
+            }
+			&:before {
+			    display: block;
+			    position: absolute;
+			    left: 0;
+			    top: pxTorem(50px);
+			    content: ' ';
+			    width: pxTorem(12px);
+			    height: pxTorem(38px);
+			    background: $color-grey2;
+				border-radius: pxTorem(6px);
+			}
+        }
+        p {
+            margin-top: pxTorem(30px);
+            margin-bottom: pxTorem(60px);
+            @include property-dpr(font-size,
+            16px);
+            line-height: pxTorem(48px);
+            /* display: -webkit-box;
+            -webkit-box-orient: vertical;
+            -webkit-line-clamp: 4;
+            overflow: hidden; */
+        }
+        .list-img {
+            margin-top: pxTorem(30px);
+            margin-bottom: pxTorem(60px);
+        }
+        .specil {
+            color: $color-62;
+            line-height: pxTorem(62px);
+            font-weight: 600;
+            margin-top: pxTorem(80px);
+        }
+    }
+}
+.course-box{
+    padding: pxTorem(0px) pxTorem(40px) 0 pxTorem(40px);
+    h3 {
+        font-weight: 600;
+        height: pxTorem(60px);
+        line-height: pxTorem(60px);
+        position: relative;
+        // margin: pxTorem(40px) 0 0 0;
+        text-indent: pxTorem(10px);
+        padding-top: pxTorem(50px);
+        padding-left: pxTorem(20px);
+//      border-top: 1px solid $border-color;
+        //  border-left:solid 3px $color-green;
+        &:before {
+            display: block;
+            position: absolute;
+            left: 0;
+            top: pxTorem(60px);
+            content: ' ';
+            width: pxTorem(12px);
+            height: pxTorem(38px);
+            background: $color-grey2;
+            border-radius: pxTorem(6px);
+        } 
+        .moreitem{
+            position: absolute;
+            right: pxTorem(30px);
+            top: pxTorem(50px);
+            display: block;
+            width: pxTorem(70px);
+            height: pxTorem(60px);
+            @include property-dpr(font-size, 12px);
+            line-height: pxTorem(60px);
+            color: #a9a9a9;
+            &:before {
+                content: '\200B';
+                width: pxTorem(30px);
+                height: 100%;
+                background: url(/static/image/icon_more.png) no-repeat center center;
+                background-size: pxTorem(15px) auto;
+                position: absolute;
+                right: pxTorem(-30px);
+            } 
+        }
+        a {
+            display: block;
+        }
+    }
+}

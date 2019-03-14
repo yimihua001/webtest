@@ -1,0 +1,125 @@
+// 评分-公共组建样式
+@import '../../helpers/variables',
+'../../helpers/mixin',
+'../../helpers/function';
+@import '../../base/base',
+'../../base/reset';
+@import '../../layout/header',
+'../../layout/layout',
+'../../layout/footer';
+@import '../../components/search',
+'../../components/mint',
+'../../components/listImg',
+'../../components/city';
+ .item-comment-wrapper {
+        padding: pxTorem(50px) 0 pxTorem(50px) 0;
+        background: $color-white;
+        box-sizing: border-box;
+        border-bottom: solid 1px $border-color;
+        &:last-child {
+            border-bottom: none;
+        }
+        .top-wrapper {
+            @extend %display-flex;
+            align-items: flex-end;
+            .img-wrapper {
+                width: pxTorem(120px);
+                height: pxTorem(120px);
+                @extend .tc;
+                display: table-cell;
+                vertical-align: middle;
+                @include border-radius(50px,
+                50px,
+                50px,
+                50px);
+                img {
+                    max-width: pxTorem(120px);
+                    max-height: pxTorem(120px);
+                    @include border-radius(50px,
+                    50px,
+                    50px,
+                    50px);
+                }
+            }
+            .right {
+                flex:1;
+                margin-left: pxTorem(20px);
+            }
+        }
+        p {
+            margin-top: pxTorem(30px);
+            @include property-dpr(font-size,
+            14px);
+            word-wrap: break-word;
+        }
+        .content {
+            display: none;
+        }
+        .img-star {
+            width: pxTorem(150px);
+            height: pxTorem(40px);
+            background: url(/static/image/small-org-star.png) no-repeat 0 center;
+            background-size: pxTorem(150px);
+            .over {
+                display: block;
+                width: 0;
+                height: pxTorem(40px);
+                background: url(/static/image/small-green-star.png) no-repeat 0 center;
+                background-size: pxTorem(150px);
+            }
+        }
+        .score {
+            margin-left: pxTorem(10px)
+        }
+    }
+    .overall-score {
+        @extend %display-flex;
+        margin-top: pxTorem(40px);
+        justify-content: space-between;
+        height: pxTorem(50px);
+        align-items: center;
+        @include property-dpr(font-size,
+        14px);
+        color: #999;
+        .score-star {
+            @extend %display-flex;
+            align-items: center;
+            .img-star {
+                display: block;
+                width: pxTorem(280px);
+                height: pxTorem(50px);
+                background: url(/static/image/big-org-star.png) no-repeat;
+                background-size: pxTorem(280px);
+                .over {
+                    display: block;
+                    width: 0;
+                    height: pxTorem(50px);
+                    background: url(/static/image/big-green-star.png) no-repeat;
+                    background-size: pxTorem(280px);
+                }
+            }
+            .score {
+                margin-left: pxTorem(10px)
+            }
+        }
+    }
+	.submit-comment-wrapper {
+	    @extend %display-box;
+	    position: fixed;
+	    height: pxTorem(120px);
+	    left: 0;
+	    right: 0;
+	    bottom: 0;
+	    background: $color-white;
+	    box-shadow: 0px 0px 1px #999;
+	    z-index: 33333;
+	    .btn {
+	        border: none;
+	        background-size: pxTorem(50px) auto;
+	        color: $color-white;
+	        width: 100%;
+	        height: pxTorem(70px);
+	        margin-top: pxTorem(32px);
+	    }
+	}
+	

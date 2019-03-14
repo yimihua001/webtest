@@ -1,0 +1,52 @@
+// 老师-公共组建样式
+@import '../../helpers/variables',
+'../../helpers/mixin',
+'../../helpers/function';
+@import '../../base/base',
+'../../base/reset';
+@import '../../layout/header',
+'../../layout/layout',
+'../../layout/footer';
+@import '../../components/search',
+'../../components/mint',
+'../../components/listImg',
+'../../components/city';
+ .teacher-item {
+        @extend %box-flex;
+		padding: pxTorem(30px) 0;
+		border-bottom: solid 1px $border-color;
+		float: left;
+		width: 100%;		
+		@extend %box-sizing;
+        .img-wrapper {
+            width: pxTorem(120px);
+            height: pxTorem(120px);
+			@extend %display;
+            display: table-cell;
+            vertical-align: middle;
+			float: left;		   
+            img {
+                max-width: pxTorem(120px);
+                max-height: pxTorem(120px);
+                @include border-radius(50px,
+                50px,
+                50px,
+                50px);
+            }
+        }
+		.username{
+			@extend %display;
+			float: left;
+			margin-top: pxTorem(20px) ;
+			margin-left: pxTorem(20px) ;
+		}
+        .descriptions {
+            width: 100%;
+			float: left;
+			margin-top: pxTorem(20px);
+			.showmore{
+			    display: inline;
+			    color: $color-green;
+			}
+        }
+    }

@@ -1,0 +1,57 @@
+body,ul,ol,dl,dd,h1,h2,h3,h4,h5,h6,pre,form,fieldset,legend,input,button,textarea,p,blockquote,table,th,td,menu{margin:0;padding:0}
+table{border-collapse:collapse;border-spacing:0;table-layout:fixed}
+ul,ol,menu{list-style:none}
+fieldset,img,a{border:none}
+img,object,select,input,textarea,button{vertical-align:middle}
+input,textarea,select,address,caption,cite,code,dfn,em,i,b,strong,small,th,var,abbr{font-size:100%;font-style:normal}
+caption,th {text-align: left;}
+article,aside,footer,header,hgroup,nav,section,figure,figcaption {display: block;}
+address, cite, dfn, em, var,i {font-style: normal;}
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,q:before, q:after {content:"";content: none;}
+a { 
+    color:$link-color; text-decoration:none;cursor: pointer;
+    &:link,&:visited, &:active{color: $link-color;}
+    &:hover, &:focus {color:$hover-color; text-decoration:none;outline:none;}
+    &,span,i,em,u,strong,b,p,img,ul,li,div,dd,dt,dl,ol,table,th,td,h1,h2,h3,h4,h5,h6,input,textarea,button,small,select {
+        cursor: pointer; @include dz;}
+}
+
+/* *********移动端********** */
+/* 改变盒子模型 */
+section, article, nav, aside, footer, header, div, p, ul, li, input, textarea {
+    display: block;
+    @extend %box-sizing;
+}
+
+html, body {
+    -webkit-user-select: none;
+    /* 禁止选中文本 */
+    user-select: none;
+    -webkit-text-size-adjust: 100%;
+    /* iphone禁用文字大小调整 */
+    -ms-text-size-adjust: 100%;
+}
+body{
+     -webkit-overflow-scrolling: touch;
+}
+h1, h2, h3, h4, h5, h6{
+    font-weight:normal;
+}
+/* 清除点击虚拟框 */
+a, div, p, span, ul, li, i, img, input {
+    outline:0;
+    text-decoration:none;
+}
+
+a, img {
+    -webkit-touch-callout: none;
+    /* 禁止长按链接与图片弹出菜单 */
+}
+
+input,textarea {
+    /* 清除 iphone 中 input 默认样式 */
+    -webkit-appearance: none;
+    -webkit-appearance:none;/*清除ios默认圆角*/
+    border-radius:0;
+}

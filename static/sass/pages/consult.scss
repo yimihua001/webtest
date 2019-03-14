@@ -1,0 +1,573 @@
+@import '../helpers/variables',
+'../helpers/mixin',
+'../helpers/function';
+@import '../base/base',
+'../base/reset';
+@import '../layout/header',
+'../layout/layout',
+'../layout/footer';
+@import '../components/mint',
+'../components/listImg';
+.student-list-wrapper {
+    padding: pxTorem(20px) pxTorem(40px);
+    .option {
+        margin-bottom: pxTorem(20px);
+        background: $color-white;
+        padding: pxTorem(10px) 0;
+        border-bottom: 1px solid $border-color;
+        li {
+            margin-bottom: pxTorem(20px);
+            padding: pxTorem(20px) 0;
+            @extend %display-flex;
+            align-items: auto;
+            position: relative;
+            @include property-dpr(font-size, 16px);
+            &:before {
+                content: ' ';
+                width: pxTorem(40px);
+                height: pxTorem(40px);
+                background: url(/static/image/icon_unclick.png) no-repeat center center;
+                background-size: pxTorem(40px) auto;
+                display: inline-block;
+            }
+            .status {
+                @include property-dpr(font-size, 14px);
+                display: inline-block;
+                margin-top:pxTorem(5px);
+            }
+            .name {
+                width: 70%;
+                display: inline-block;
+                margin: 0 pxTorem(20px);
+                em {
+                    @include property-dpr(font-size, 12px);
+                    color: $color-grey;
+                }
+            }
+        }
+        .active {
+            &:before {
+                content: ' ';
+                background: url(/static/image/icon_click.png) no-repeat center center;
+                background-size: pxTorem(40px) auto;
+            }
+        }
+        &:last-child {
+            border-bottom: none;
+        }
+    }
+}
+
+.consult-wrapper {
+    background: $main-bg-color;
+    width: 100%;
+    height: 100%;
+    .top {
+        padding-top: pxTorem(30px);
+        padding-bottom: pxTorem(30px);
+        @include property-dpr(font-size, 16px);
+        padding-left: pxTorem(40px);
+        border-bottom: solid 1px #e5e5e5;
+        &:after {
+            display: inline-block;
+            content: '\200B';
+            width: pxTorem(30px);
+            height: pxTorem(44px);
+            background: url(/static/image/icon_more.png) no-repeat center right;
+            background-size: pxTorem(16px) auto;
+            @include property-dpr(font-size, 14px);
+            float: right;
+            margin-right: pxTorem(30px)
+        }
+    }
+    .consult-praise {
+        width: 100%;
+        p {
+            @include property-dpr(font-size, 16px);
+            color: $color-grey;
+            @extend .tc;
+        }
+        .answer {
+            @extend .tc;
+            margin-top: pxTorem(20px);
+        }
+        .answer li {
+            display: inline-block;
+            width: pxTorem(130px);
+            padding: pxTorem(10px) 0;
+            @include property-dpr(font-size, 16px);
+            border: 1px solid $color-green;
+            @extend .tc;
+            color: $color-green;
+            @include border-radius(5px, 5px, 5px, 5px);
+            margin: 0 pxTorem(10px);
+            cursor: pointer;
+        }
+    }
+    .im-footer {
+        background: $color-white;
+        .emoji-list {
+            display: none;
+            >ul {
+                padding-top: pxTorem(20px);
+                padding-left: pxTorem(20px);
+            }
+            li {
+                width: pxTorem(70px);
+                height: pxTorem(70px);
+                text-align: center;
+                @extend .fl;
+                img {
+                    width: pxTorem(56px);
+                    height: pxTorem(56px);
+                }
+            }
+        }
+    }
+    .submit-wrapper {
+        @extend %display-flex;
+        box-shadow: 0px 0px 1px #999;
+        z-index: 33333;
+        align-items: center;
+        padding: 0 pxTorem(20px);
+        height: pxTorem(110px);
+        justify-content: space-around;
+        input {
+            height: pxTorem(90px);
+            display: block;
+            @extend %box-flex;
+            padding: pxTorem(25px);
+            @include property-dpr(font-size, 16px);
+            border: solid 1px $color-white;
+        }
+        .send {
+            width: pxTorem(50px);
+            height: pxTorem(110px);
+            border: none;
+            background: url(/static/image/send.png) no-repeat center center;
+            background-size: pxTorem(50px) auto;
+        }
+        .face {
+            display: block;
+            border: none;
+            background: url(/static/image/face.png) no-repeat center center;
+            background-size: pxTorem(50px) auto;
+            color: $color-white;
+            width: pxTorem(50px);
+            height: pxTorem(110px);
+        }
+        .upload-wrapper {
+            background: url(/static/image/chat_icon_photo.png) no-repeat center center;
+            background-size: pxTorem(50px) auto;
+            color: $color-white;
+            width: pxTorem(80px);
+            height: pxTorem(110px);
+        }
+    }
+}
+
+.update-wrapper {
+    padding: pxTorem(20px) pxTorem(40px) 0 pxTorem(40px);
+    .dataup {
+        width: 100%;
+        padding-top: pxTorem(20px);
+        p {
+            margin-bottom: pxTorem(20px);
+            margin-top: pxTorem(20px);
+            @include property-dpr(font-size, 18px);
+            font-weight: 600;
+            color: $font-color;
+        }
+        .doc-list-img {
+            margin-top: pxTorem(10px);
+            ul {
+                display: flex;
+                flex-direction: row;
+                flex-wrap: wrap;
+                align-items: flex-start;
+                margin-top: pxTorem(30px);
+                li {
+                    box-sizing: content-box;
+                    width: pxTorem(100px);
+                    border-radius: 50%;
+                    margin: 0 pxTorem(30px) pxTorem(30px) 0;
+                    height: pxTorem(100px);
+                }
+                img {
+                    width: 100%;
+                    height: 100%;
+                    border-radius: 50%;
+                    object-fit: cover;
+                }
+            }
+        }
+        .box {
+            height: pxTorem(120px);
+            .ui-textarea {
+                padding: pxTorem(20px) 0;
+                border: 1px solid $border-color;
+                width: 100%;
+                resize: none;
+                @include property-dpr(font-size, 16px);
+                border-left: none;
+                border-right: none;
+            }
+        }
+        //      textarea::-webkit-input-placeholder {
+        //          text-align:left;
+        //          height: pxTorem(110px);
+        //          line-height: pxTorem(110px);
+        //      }
+    }
+    .btnan {
+        background: $color-green;
+        color: $color-white;
+        @include property-dpr(font-size, 18px);
+        margin-top: pxTorem(30px);
+        width: 100%;
+        height: pxTorem(110px);
+        padding: pxTorem(20px) 0;
+        @include border-radius(pxTorem(8px), pxTorem(8px), pxTorem(8px), pxTorem(8px));
+        border: none;
+    }
+}
+
+.webim-msg-container {
+    overflow: hidden;
+    margin: pxTorem(20px) pxTorem(20px);
+    .time {
+        @extend .tc;
+        margin: pxTorem(10px) 0;
+        span {
+            display: inline-block;
+            background: #b3b3b3;
+            color: $color-white;
+            max-width: pxTorem(210px);
+            height: pxTorem(50px);
+            line-height: pxTorem(50px);
+            padding: 0 pxTorem(10px);
+            @include border-radius(pxTorem(5px), pxTorem(5px), pxTorem(5px), pxTorem(5px));
+        }
+    }
+}
+
+.rel {
+    position: relative;
+}
+
+.webim-msg-container>div {
+    width: 80%;
+    overflow: hidden;
+}
+
+.webim-avatar-icon.small {
+    width: pxTorem(80px);
+    height: pxTorem(80px);
+    background: $color-white;
+    .w100 {
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+    }
+}
+
+.webim-avatar-icon {
+    width: pxTorem(80px);
+    height: pxTorem(80px);
+    border-radius: 50%;
+    overflow: hidden;
+    -webkit-filter: contrast(1.2);
+    -webkit-tap-highlight-color: transparent;
+}
+
+.webim-msg-container .right>p {
+    color: #999999;
+    letter-spacing: 1px;
+    margin-right: 13px;
+    font-size: 13px;
+    text-align: right;
+}
+
+.webim-msg-container .left>p {
+    color: #999999;
+    letter-spacing: 1px;
+    margin-left: 10px;
+    font-size: 13px;
+}
+
+.webim-msg-container .left>h4 {
+    letter-spacing: 1px;
+    margin-left: pxTorem(40px);
+    margin-bottom: 8px;
+}
+
+.webim-msg-container .box {
+    max-width: 80%
+}
+
+.webim-msg-container .right .webim-msg-delivered {
+    float: left;
+    margin: 6px 2px 0 0;
+    background-color: #cccccc;
+}
+
+.webim-msg-container .right .webim-msg-value {
+    float: right;
+    margin: pxTorem(20px) 0 0 0;
+    border-radius: 8px 0 8px 8px;
+}
+
+.webim-msg-container .right .box {
+    margin-right: pxTorem(20px);
+}
+
+.webim-msg-container .left .webim-msg-value {
+    float: left;
+    margin: pxTorem(20px) 0 0 0;
+    border-radius: 0 8px 8px 8px;
+}
+
+.webim-msg-container .left .box {
+    margin-left: pxTorem(20px);
+}
+
+.webim-msg-container .right .webim-msg-value>pre {
+    background-color: $color-green;
+    color: $color-white;
+}
+
+.webim-msg-container .left .webim-msg-value>pre {
+    color: $font-color;
+    background-color: $color-white;
+}
+
+.webim-msg-value {
+    position: relative;
+    min-height: pxTorem(60px);
+    box-sizing: border-box;
+    width: 100%;
+    overflow: hidden;
+}
+
+.webim-msg-value>pre {
+    white-space: pre-wrap;
+    word-break: break-all;
+    line-height: 1.5;
+    margin: 0;
+    @include property-dpr(font-size, 16px);
+    padding: pxTorem(18px) pxTorem(25px);
+}
+
+.left .webim-msg-value .video {
+    position: relative;
+    color: $color-white;
+}
+
+.left .webim-msg-value .video:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url(/static/image/ic_music_play.png);
+    background-size: pxTorem(80px);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.right .webim-msg-value .video {
+    position: relative;
+    color: $color-white;
+}
+
+.right .webim-msg-value .video:after {
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-image: url(/static/image/ic_music_play.png);
+    background-size: pxTorem(80px);
+    background-position: center center;
+    background-repeat: no-repeat;
+}
+
+.webim-msg-img {
+    max-width: 100%;
+    max-height: pxTorem(200px);
+    vertical-align: middle;
+    cursor: pointer;
+    //border-radius: 4px;
+    margin: 0 auto;
+    text-align: left;
+    background: $color-white;
+    padding: pxTorem(15px)
+}
+
+.webim-msg-container .left .webim-msg-img,
+.webim-msg-container .left .webim-msg-value>pre {
+    border-radius: 0 8px 8px 8px;
+}
+
+.webim-msg-container .right .webim-msg-img,
+.webim-msg-container .right .webim-msg-value>pre {
+    border-radius: 8px 0 8px 8px;
+}
+
+.webim-msg-img-1 {
+    width: pxTorem(80px);
+    height: pxTorem(80px);
+}
+
+.webim-msg-container .right .webim-msg-header {
+    text-align: right;
+}
+
+.webim-msg-header {
+    line-height: 30px;
+    margin-bottom: 4px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+.webim-msg-header-icon {
+    vertical-align: middle;
+    display: inline-block;
+    margin: -30px 10px 0 0;
+    line-height: 40px;
+    color: #868683;
+    width: 25px;
+    height: 25px;
+    background: url(/static/image/dir_photo.png) no-repeat;
+    background-size: contain;
+    text-indent: -9999px;
+}
+
+.webim-msg-name {
+    width: calc(100% - 40px);
+    display: inline-block;
+    height: 40px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+}
+
+.webim-msg-fileSize {
+    display: inline-block;
+    float: right;
+    width: 47px;
+    overflow: hidden;
+}
+
+.webim-msg-value a {
+    display: block;
+    margin-left: 32px;
+    margin-top: -28px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.25);
+    text-decoration: none;
+}
+
+.webim-msg-value .emoji,
+.imUserList .emoji {
+    width: 28px;
+    vertical-align: bottom;
+    display: inline-block;
+}
+
+.webim-audio-msg {
+    max-width: pxTorem(500px);
+    min-height: pxTorem(60px);
+    padding-left: pxTorem(10px);
+    background-color: $color-green;
+    border-radius: 0 8px 8px 8px;
+}
+
+.webim-audio-msg:before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: pxTorem(30px);
+    height: pxTorem(60px);
+    background: url(/static/image/icon_chat_message_unread_state.png) no-repeat right center;
+    background-size: pxTorem(17px);
+}
+
+.webim-audio-msg span {
+    color: #b3b3b3;
+    position: absolute;
+    bottom: 5px;
+    right: -26px;
+    @include property-dpr(font-size, 12px);
+}
+
+.webim-audio-msg-current:before {
+    background: url(/static/image/icon_chat_message_read_state.gif) no-repeat right center;
+    background-size: pxTorem(17px);
+}
+
+.webim-msg-product {
+    width: 100%;
+    vertical-align: middle;
+    cursor: pointer;
+    margin: 0 auto;
+    text-align: left;
+    background: #fff;
+    padding: pxTorem(20px) pxTorem(20px) pxTorem(20px) pxTorem(20px);
+    border-radius: 0 8px 8px 8px;
+    h4 {
+        font-weight: 700;
+    }
+    p {
+        padding: pxTorem(15px) 0;
+        @include property-dpr(font-size, 14px);
+        color: #999;
+    }
+    .stock {
+        margin-left: pxTorem(20px);
+    }
+    button {
+        background: $color-green;
+        border: none;
+        color: $color-white;
+        padding: pxTorem(10px) pxTorem(15px);
+        @include border-radius(3px, 3px, 3px, 3px);
+        //margin-left:pxTorem(30px);
+        @include property-dpr(font-size, 12px);
+    }
+    .bottom {
+        height: pxTorem(70px);
+        padding-top: pxTorem(15px);
+        border-top: solid 1px $border-color;
+        @extend %display-flex;
+        justify-content: space-between;
+        align-items: center;
+        .price {
+            color: $color-green;
+            @include property-dpr(font-size, 16px);
+        }
+        .orgprice {
+            color: $color-grey;
+            @include property-dpr(font-size, 12px);
+            text-decoration: line-through;
+            margin-left: pxTorem(5px);
+        }
+    }
+}
+
+.mint-msgbox {
+    width: 82%;
+    .mint-msgbox-content {
+        .mint-msgbox-message {
+            color: #000;
+            margin: 0;
+            line-height: 32px;
+            @extend .tl;
+        }
+    }
+}

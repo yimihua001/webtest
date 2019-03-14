@@ -1,0 +1,288 @@
+@import '../helpers/variables',
+'../helpers/mixin',
+'../helpers/function';
+@import '../base/base',
+'../base/reset';
+@import '../layout/header',
+'../layout/footer',
+'../layout/layout';
+@import '../components/mint',
+'../components/search',
+'../components/listImg';
+.mat-tab {
+    border-bottom: solid 1px $border-color;
+    @extend %display-flex;
+    justify-content: space-between;
+    padding: 0 pxTorem(100px);
+    li {
+        padding: 0 pxTorem(40px);
+        line-height: pxTorem(90px);
+        @include property-dpr(font-size, 16px);
+    }
+    .active {
+        border-bottom: solid 3px $color-green;
+    }
+}
+
+.media-wrapper {
+   // padding-top: ;
+    ////  display: -ms-flexbox;
+    ////  -ms-flex-wrap: wrap;
+    ////  -ms-flex-direction: column;
+    //   @extend %display-flex;
+    ////  flex-direction: column;
+    //  flex-wrap: wrap;
+    ////  font-size: 0;
+    padding: pxTorem(40px) pxTorem(20px) 0 pxTorem(20px);
+    ////  align-items: flex-start;
+    ////  align-content: flex-start;
+    //  justify-content: space-between;
+    //  -moz-column-count: 2;
+    //  /* Firefox */
+    //  -webkit-column-count: 2;
+    //  /* Safari 和 Chrome */
+    //  column-count: 2;
+    //  -moz-column-gap: pxTorem(20px);
+    //  -webkit-column-gap: pxTorem(20px);
+    //  column-gap: pxTorem(20px);
+    ul {
+        //      padding-top:pxTorem(40px);
+        //      -moz-column-count: 2;
+        //      -webkit-column-count: 2;
+        //      column-count: 2;
+        //      -moz-column-width: 10em;
+        //      -webkit-column-width: 10em;
+        //      column-width: 10em;
+        //      -moz-column-gap: 1em;
+        //      -webkit-column-gap: 1em;
+        //      column-gap: 1em;
+        /*下面代码是兼容各个浏览器的，并实现了四列，没两列之间间距为30px，*/
+        //      -moz-column-count: 2;
+        //      -moz-column-gap: pxTorem(20px);
+        //      -moz-column-rule: 0px solid #ff0000; //火狐浏览器
+        //      -webkit-column-count: 2;
+        //      -webkit-column-gap: pxTorem(20px);
+        //      -webkit-column-rule: 0px solid #ff0000; //Google chrome 
+        //      -o-column-count: 2;
+        //      -o-column-gap: pxTorem(20px);
+        //      -o-column-rule: 0px solid #ff0000; //Opera浏览器的
+        @extend %display-flex;
+        //      flex-direction: column;
+        flex-wrap: wrap;
+        //      align-items: flex-start;
+        //      align-content: flex-start;
+        justify-content: space-between;
+        padding-top:pxTorem(10px);
+        .pic-item {
+            width: 50%;
+            padding: 0 pxTorem(20px);
+            // border:solid 1px #f00;
+            //padding: pxTorem(20px);
+            margin: 0 0 pxTorem(20px) 0;
+            //      -moz-page-break-inside: avoid;
+            //      -webkit-column-break-inside: avoid;
+            //      break-inside: avoid;
+            //      border: 1px solid #000;
+            //      -moz-box-shadow:2px 2px 8px $border-color; 
+            //      -webkit-box-shadow:2px 2px 8px $border-color; 
+            //      box-shadow:2px 2px 8px $border-color;
+            //      @include border-radius(6px,6px,6px,6px);
+            //          margin: 0 0 pxTorem(20px) 0;
+            //          -moz-page-break-inside: avoid;
+            //          -webkit-column-break-inside: avoid;
+            //          break-inside: avoid;
+            //          background: white;
+            @extend .tc;
+            img {
+                width: 100%;
+                @include border-radius(6px, 6px, 0, 0);
+            }
+            p {
+                -moz-box-shadow: 2px 2px 8px $border-color;
+                -webkit-box-shadow: 2px 2px 8px $border-color;
+                box-shadow: 2px 2px 8px $border-color;
+                min-height: pxTorem(30px);
+                @include property-dpr(font-size, 16px);
+                padding: pxTorem(20px) pxTorem(20px);
+            }
+        }
+        .audio-item {
+            width: calc(100%/3);
+            padding: 0 pxTorem(40px);
+            margin: 0 0 pxTorem(20px) 0;
+            @extend .tc;
+            img {
+                width: 80%;
+                @include border-radius(6px, 6px, 0, 0);
+            }
+            p {
+                min-height: pxTorem(30px);
+                @include property-dpr(font-size, 18px);
+                padding: pxTorem(20px) 0;
+            }
+            .audio-img {
+                margin: 0 auto;
+                width: pxTorem(100px);
+                height: pxTorem(100px);
+                background: url('/static/image/icon_audio.png') no-repeat center center;
+                background-size: pxTorem(100px) auto;
+            }
+            .audio-play {
+                margin: 0 auto;
+                width: pxTorem(100px);
+                height: pxTorem(100px);
+                background: url('/static/image/icon_audio_play.png') no-repeat center center;
+                background-size: pxTorem(100px) auto;
+            }
+        }
+    }
+}
+
+//.card-list {
+//  width: 100%;
+//  padding: pxTorem(40px) pxTorem(40px) pxTorem(20px) pxTorem(20px);
+//  @include property-dpr(font-size, 14px);
+//  overflow-y: scroll;
+//  .list-card {
+//      float: left;
+//      width: 33.333%;
+//      padding-left: pxTorem(20px);
+//      padding-bottom: pxTorem(10px);
+//      .picture {
+//          padding-bottom: pxTorem(20px);
+//          img {
+//              width: 100%;
+//             
+//              overflow: hidden;
+//          }
+//          span {
+//              background: $color-white;
+//              width: 100%;
+//              display: block;
+//              height: pxTorem(60px);
+//              line-height: pxTorem(60px);
+//              @extend .tc;
+//          }
+//      }
+//      .video {
+//          padding-bottom: pxTorem(20px);
+//          .video-img {
+//              width: 100%;
+//              overflow: hidden;
+//          }
+//          span {
+//              background: $color-white;
+//              width: 100%;
+//              display: block;
+//              height: pxTorem(60px);
+//              line-height: pxTorem(60px);
+//              @extend .tc;
+//          }
+//      }
+//      .audio {
+//          padding-bottom: pxTorem(20px);
+//          .audio-img {
+//              width: 100%;
+//              overflow: hidden;
+//          }
+//          span {
+//               background: $color-white;
+//              width: 100%;
+//              display: block;
+//              height: pxTorem(60px);
+//              line-height: pxTorem(60px);
+//              @extend .tc;
+//          }
+//      }
+//  }
+//}
+.scroll-wrapper {
+    .swiperwrap {
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.8);
+        .swiperwhite {
+            background: #000;
+            height: 70%;
+            opacity: 0.8;
+        }
+        .swiper-container {
+            background: #000;
+            background: rgba(0, 0, 0, 0.8);
+            div {
+                border: none;
+            }
+        }
+    }
+    .materialsdetail {
+        padding: pxTorem(150px) pxTorem(20px) pxTorem(20px) pxTorem(20px);
+        width: 100%;
+        height: 100%;
+        overflow-y: scroll;
+        .bannerimg {
+            margin-left: pxTorem(20px);
+            margin-bottom: pxTorem(20px);
+            margin-top: pxTorem(20px);
+            float: left;
+            width: 46%;
+            box-shadow: 0 0 1px #666;
+            img {
+                height: pxTorem(320px);
+                width: 100%;
+            }
+            .picname {
+                background: $color-white;
+                width: 100%;
+                display: block;
+                height: pxTorem(60px);
+                line-height: pxTorem(60px);
+                @extend .tc;
+            }
+        }
+        .videoli {
+            margin: pxTorem(10px);
+            width: 45%;
+            float: left;
+            &:nth-child(2n+1) {
+                margin-right: 3%;
+            }
+            .video {
+                position: relative;
+                .bgcover {
+                    width: pxTorem(120px);
+                    height: pxTorem(120px);
+                    position: absolute;
+                    top: pxTorem(65px);
+                    left: pxTorem(105px);
+                }
+            }
+            .videoname {
+                display: block;
+                height: pxTorem(120px);
+                line-height: pxTorem(120px);
+                @extend .tc;
+            }
+        }
+        .audioli {
+            width: 30%;
+            float: left;
+            margin: pxTorem(10px);
+            .my-audio {
+                .audio-img {
+                    width: 100%;
+                }
+                .audioname {
+                    display: block;
+                    @extend .tc;
+                }
+                .audiostute {
+                    width: pxTorem(120px);
+                    height: pxTorem(120px);
+                    position: absolute;
+                    top: pxTorem(60px);
+                    left: pxTorem(49px);
+                }
+            }
+        }
+    }
+}
